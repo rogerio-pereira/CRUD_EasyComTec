@@ -9,37 +9,39 @@
 
 <div class='row'>
     <div class="col-md-12 form-group">
-        <h3>{!! Form::label('other', '_framework_name_') !!}</h3>
+        @foreach($skills as $skill)
+            <h3 class='mt-5'>{!! Form::label('other', $skill->name) !!}</h3>
 
-        <div class='form-check form-check-inline'>
-            {!! Form::radio('_framework_name_', '0', false, ['class' => 'form-check-input', 'id' => '_framework_name__0']) !!} 
-            {!! Form::label('_framework_name__0', '0') !!}
-        </div>
+            <div class='form-check form-check-inline'>
+                {!! Form::radio($skill->name, '0', false, ['class' => 'form-check-input', 'id' => $skill->name.'_0']) !!} 
+                {!! Form::label($skill->name.'_0', ' 0') !!}
+            </div>
 
-        <div class='form-check form-check-inline'>
-            {!! Form::radio('_framework_name_', '1', false, ['class' => 'form-check-input', 'id' => '_framework_name__1']) !!} 
-            {!! Form::label('_framework_name__1', '1') !!}
-        </div>
+            <div class='form-check form-check-inline'>
+                {!! Form::radio($skill->name, '1', false, ['class' => 'form-check-input', 'id' => $skill->name.'_1']) !!} 
+                {!! Form::label($skill->name.'_1', '1') !!}
+            </div>
 
-        <div class='form-check form-check-inline'>
-            {!! Form::radio('_framework_name_', '2', false, ['class' => 'form-check-input', 'id' => '_framework_name__2']) !!} 
-            {!! Form::label('_framework_name__2', '2') !!}
-        </div>
+            <div class='form-check form-check-inline'>
+                {!! Form::radio($skill->name, '2', false, ['class' => 'form-check-input', 'id' => $skill->name.'_2']) !!} 
+                {!! Form::label($skill->name.'_2', '2') !!}
+            </div>
 
-        <div class='form-check form-check-inline'>
-            {!! Form::radio('_framework_name_', '3', false, ['class' => 'form-check-input', 'id' => '_framework_name__3']) !!} 
-            {!! Form::label('_framework_name__3', '3') !!}
-        </div>
+            <div class='form-check form-check-inline'>
+                {!! Form::radio($skill->name, '3', false, ['class' => 'form-check-input', 'id' => $skill->name.'_3']) !!} 
+                {!! Form::label($skill->name.'_3', '3') !!}
+            </div>
 
-        <div class='form-check form-check-inline'>
-            {!! Form::radio('_framework_name_', '4', false, ['class' => 'form-check-input', 'id' => '_framework_name__4']) !!} 
-            {!! Form::label('_framework_name__4', '4') !!}
-        </div>
-        
-        <div class='form-check form-check-inline'>
-            {!! Form::radio('_framework_name_', '5', false, ['class' => 'form-check-input', 'id' => '_framework_name__5']) !!} 
-            {!! Form::label('_framework_name__5', '5') !!}
-        </div>
+            <div class='form-check form-check-inline'>
+                {!! Form::radio($skill->name, '4', false, ['class' => 'form-check-input', 'id' => $skill->name.'_4']) !!} 
+                {!! Form::label($skill->name.'_4', '4') !!}
+            </div>
+            
+            <div class='form-check form-check-inline'>
+                {!! Form::radio($skill->name, '5', false, ['class' => 'form-check-input', 'id' => $skill->name.'_5']) !!} 
+                {!! Form::label($skill->name.'_5', '5') !!}
+            </div>
+        @endforeach
     </div>
 
 
