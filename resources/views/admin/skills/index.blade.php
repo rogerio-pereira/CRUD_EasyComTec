@@ -8,7 +8,7 @@
     <div class='col-md-12 text-center mb-2'>
         <a href='{{route('admin.skills.create')}}' alt='New' title='New' class='btn btn-primary'>
             <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp;
-            New
+            New Skill
         </a>
     </div>
 
@@ -29,7 +29,7 @@
             <tr>
                 <td>
                     {!! Form::open(['route' => ['admin.skills.destroy', $skill->id], 'method' => 'delete', 'style' => 'display: inline']) !!}
-                        {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'title' => 'Apagar']) !!}
+                        {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'title' => 'Apagar', 'id' => 'delete_'.$skill->id]) !!}
                     {!! Form::close() !!}
 
                     <a href='skills/{{$skill->id}}/edit' class='btn btn-primary' title='Editar'>
