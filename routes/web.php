@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::post('/candidates/store', 'Admin\\CandidatesController@store')->name('candidates.store');
 
 
 Route::group([

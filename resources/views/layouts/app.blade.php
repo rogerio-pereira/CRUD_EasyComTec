@@ -11,8 +11,8 @@
     <title>Easy Communication & Technology - CRUD</title>
 
     {{--Styles--}}
-    {!! Html::style('css/app.css') !!}
-    {!! Html::style('css/site/style.min.css') !!}
+    {!! Html::style('/css/app.css') !!}
+    {!! Html::style('/css/style.min.css') !!}
     @yield('css')
 </head>
 <body>
@@ -27,7 +27,8 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {!! Html::script('/js/app.js') !!}
+    {!! Html::script('/js/template.min.js') !!}
     @yield('scripts')
 </body>
 </html>
