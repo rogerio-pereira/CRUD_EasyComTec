@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\BankInformation;
+use App\Models\Candidate;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CandidatesController extends Controller
 {
+    private $model;
+
+    public function __construct(Candidate $model)
+    {
+        $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +45,23 @@ class CandidatesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $bankInformation = $data['bank'];
+        $knowledge = $data['knowledge'];
+
+        unset($data['bank']);
+        unset($data['knowledge']);
+
+        $data['availability'] = implode('; ', $data['availability']);
+        $data['best_time'] = implode('; ', $data['best_time']);
+
+        $candidate = $this->model->create($data);
+        $candidate->bankInformation()->save(new BankInformation($bankInformation));
+
+        Session::flash('message', ['Application saved successfully!']); 
+        Session::flash('alert-type', 'alert-success'); 
+
+        return redirect()->back();
     }
 
     /**

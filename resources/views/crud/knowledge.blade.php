@@ -13,32 +13,32 @@
             <h3 class='mt-5'>{!! Form::label('other', $skill->name) !!}</h3>
 
             <div class='form-check form-check-inline'>
-                {!! Form::radio($skill->name, '0', false, ['class' => 'form-check-input', 'id' => $skill->name.'_0']) !!} 
+                {!! Form::radio('knowledge['.$skill->id.']', '0', false, ['class' => 'form-check-input', 'id' => $skill->name.'_0']) !!} 
                 {!! Form::label($skill->name.'_0', ' 0') !!}
             </div>
 
             <div class='form-check form-check-inline'>
-                {!! Form::radio($skill->name, '1', false, ['class' => 'form-check-input', 'id' => $skill->name.'_1']) !!} 
+                {!! Form::radio('knowledge['.$skill->id.']', '1', false, ['class' => 'form-check-input', 'id' => $skill->name.'_1']) !!} 
                 {!! Form::label($skill->name.'_1', '1') !!}
             </div>
 
             <div class='form-check form-check-inline'>
-                {!! Form::radio($skill->name, '2', false, ['class' => 'form-check-input', 'id' => $skill->name.'_2']) !!} 
+                {!! Form::radio('knowledge['.$skill->id.']', '2', false, ['class' => 'form-check-input', 'id' => $skill->name.'_2']) !!} 
                 {!! Form::label($skill->name.'_2', '2') !!}
             </div>
 
             <div class='form-check form-check-inline'>
-                {!! Form::radio($skill->name, '3', false, ['class' => 'form-check-input', 'id' => $skill->name.'_3']) !!} 
+                {!! Form::radio('knowledge['.$skill->id.']', '3', false, ['class' => 'form-check-input', 'id' => $skill->name.'_3']) !!} 
                 {!! Form::label($skill->name.'_3', '3') !!}
             </div>
 
             <div class='form-check form-check-inline'>
-                {!! Form::radio($skill->name, '4', false, ['class' => 'form-check-input', 'id' => $skill->name.'_4']) !!} 
+                {!! Form::radio('knowledge['.$skill->id.']', '4', false, ['class' => 'form-check-input', 'id' => $skill->name.'_4']) !!} 
                 {!! Form::label($skill->name.'_4', '4') !!}
             </div>
             
             <div class='form-check form-check-inline'>
-                {!! Form::radio($skill->name, '5', false, ['class' => 'form-check-input', 'id' => $skill->name.'_5']) !!} 
+                {!! Form::radio('knowledge['.$skill->id.']', '5', false, ['class' => 'form-check-input', 'id' => $skill->name.'_5']) !!} 
                 {!! Form::label($skill->name.'_5', '5') !!}
             </div>
         @endforeach
