@@ -1,4 +1,4 @@
-<h1>Informações Pessoais / Personal Information</h1>
+<h2>Informações Pessoais / Personal Information</h2>
 
 <div class='row'>
     <div class="col-md-6 form-group">

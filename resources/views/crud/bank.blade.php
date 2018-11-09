@@ -1,4 +1,4 @@
-<h1>Informações Bancárias / Bank Information</h1>
+<h2>Informações Bancárias / Bank Information</h2>
 
 <div class='row'>
     <div class="col-md-12 form-group">

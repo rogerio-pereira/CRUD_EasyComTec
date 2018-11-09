@@ -2,6 +2,8 @@
 
 @section('content')
     <div class='col-md-8 offset-md-2'>
+        <h1 class='text-center mb-4'>Faça parte da nossa equipe / Join our team</h1>
+
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#personal-info" id='personalInfoTab'>
