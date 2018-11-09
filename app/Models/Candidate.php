@@ -19,6 +19,8 @@ class Candidate extends Model
         'availability',
         'best_time',
         'salary',
+
+        'crud',
     ];
 
     /**

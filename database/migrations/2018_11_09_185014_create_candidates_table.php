@@ -27,6 +27,9 @@ class CreateCandidatesTable extends Migration
             $table->text('availability');
             $table->text('best_time');
             $table->decimal('salary');
+
+            $table->string('crud');
+            
             $table->timestamps();
         });
     }
