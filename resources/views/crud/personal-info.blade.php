@@ -18,10 +18,10 @@
     </div>
 
     <div class="col-md-6 form-group">
-        {!! Form::label('telephone', 'Telefone / Phone (Whatsapp)') !!}
-        {!! Form::text('telephone', null, ['class' => 'form-control']) !!}
-        @if ($errors->has('telephone'))
-            <div class="text-danger">{{ $errors->first('telephone') }}</span>
+        {!! Form::label('phone', 'Telefone / Phone (Whatsapp)') !!}
+        {!! Form::text('phone', null, ['class' => 'form-control']) !!}
+        @if ($errors->has('phone'))
+            <div class="text-danger">{{ $errors->first('phone') }}</span>
         @endif
     </div>
 

@@ -14,4 +14,11 @@ class Skill extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['created_at', 'deleted_at'];
 }

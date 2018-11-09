@@ -2,10 +2,10 @@
 
 <div class='row'>
     <div class="col-md-12 form-group">
-        {!! Form::label('bank-information', 'Informações Bancárias (Banco brasileiro precisa: Nome, CPF, Banco, Agencia, Conta Corrente ou Poupança) / Bank Information') !!}
-        {!! Form::text('bank-information', null, ['class' => 'form-control']) !!}
-        @if ($errors->has('bank-information'))
-            <div class="text-danger">{{ $errors->first('bank-information') }}</span>
+        {!! Form::label('bank_information', 'Informações Bancárias (Banco brasileiro precisa: Nome, CPF, Banco, Agencia, Conta Corrente ou Poupança) / Bank Information') !!}
+        {!! Form::text('bank_information', null, ['class' => 'form-control']) !!}
+        @if ($errors->has('bank_information'))
+            <div class="text-danger">{{ $errors->first('bank_information') }}</span>
         @endif
     </div>
 
@@ -53,17 +53,17 @@
     <div class="col-md-6 form-group my-4">
         {!! Form::label('ac', "Tipo de Conta / Account Type") !!}
 
-        @if ($errors->has('account-type'))
+        @if ($errors->has('account_type'))
             <div class="text-danger">{{ $errors->first('availability') }}</span>
         @endif
         
         {{--Chain--}}
         <br/>
-        {!! Form::radio('account-type', 'Corrente / Chain', false, ['id' => 'chain']) !!}
+        {!! Form::radio('account_type', 'Corrente / Chain', false, ['id' => 'chain']) !!}
         {!! Form::label('chain', 'Corrente / Chain') !!}
         &nbsp;
         {{--Savings--}}
-        {!! Form::radio('account-type', 'Poupança / Savings', false, ['id' => 'savings']) !!}
+        {!! Form::radio('account_type', 'Poupança / Savings', false, ['id' => 'savings']) !!}
         {!! Form::label('savings', 'Poupança / Savings') !!}
     </div>
 </div>
