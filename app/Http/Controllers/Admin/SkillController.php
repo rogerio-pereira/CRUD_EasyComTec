@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\SkillRequest;
+use App\Models\Skill;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SkillController extends Controller
 {
+    private $model;
+
+    public function __construct(Skill $model)
+    {
+        $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +24,9 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $skills = $this->model->paginate();
+
+        return view('admin.skills.index', compact('skills'));
     }
 
     /**
@@ -24,7 +36,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.skills.create');
     }
 
     /**
@@ -33,9 +45,16 @@ class SkillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SkillRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $this->model->create($data);
+
+        Session::flash('message', ['Skill saved successfully!']); 
+        Session::flash('alert-type', 'alert-success'); 
+
+        return redirect()->route('admin.skills.index');
     }
 
     /**
@@ -57,7 +76,9 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        $skill = $this->model->find($id);
+
+        return view('admin.skills.edit', compact('skill'));
     }
 
     /**
@@ -67,9 +88,17 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SkillRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $skill = $this->model->find($id);
+
+        $skill->fill($data)->save();
+
+        Session::flash('message', ['Skill updated successfully!']); 
+        Session::flash('alert-type', 'alert-success'); 
+
+        return redirect()->route('admin.skills.index');
     }
 
     /**
@@ -80,6 +109,11 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->model->destroy($id);
+
+        Session::flash('message', ['Skill deleted successfully!']); 
+        Session::flash('alert-type', 'alert-success'); 
+
+        return redirect()->route('admin.skills.index');
     }
 }

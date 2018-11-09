@@ -20,8 +20,10 @@ Route::post('/candidates/store', 'Admin\\CandidatesController@store')->name('can
 Route::group([
                 'prefix' => 'admin',
                 'namespace' => 'Admin',
-                'middleware' => 'auth'
+                'middleware' => 'auth',
+                'as' => 'admin.'
             ], function() 
 {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('skills', 'SkillController');
 });

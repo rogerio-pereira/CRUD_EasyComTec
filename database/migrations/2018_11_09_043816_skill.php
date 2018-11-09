@@ -27,6 +27,6 @@ class Skill extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('name');
+        Schema::dropIfExists('skills');
     }
 }
