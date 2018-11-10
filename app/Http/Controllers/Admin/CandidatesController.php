@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BankInformation;
 use App\Models\Candidate;
+use App\Models\CandidateSkills;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class CandidatesController extends Controller
@@ -47,7 +49,7 @@ class CandidatesController extends Controller
     {
         $data = $request->all();
         $bankInformation = $data['bank'];
-        $knowledge = $data['knowledge'];
+        $knowledges = $data['knowledge'];
 
         unset($data['bank']);
         unset($data['knowledge']);
@@ -55,8 +57,17 @@ class CandidatesController extends Controller
         $data['availability'] = implode('; ', $data['availability']);
         $data['best_time'] = implode('; ', $data['best_time']);
 
-        $candidate = $this->model->create($data);
-        $candidate->bankInformation()->save(new BankInformation($bankInformation));
+        DB::beginTransaction();
+            $candidate = $this->model->create($data);
+            $candidate->bankInformation()->save(new BankInformation($bankInformation));
+
+            foreach ($knowledges as $key => $knowledge) {
+                if(is_numeric($key))
+                    $candidate->skills()->save(new CandidateSkills(['skill_id' => $key,'rate' => $knowledge]));
+                else
+                    $candidate->skills()->save(new CandidateSkills(['other' => $knowledge]));
+            }
+        DB::commit();
 
         Session::flash('message', ['Application saved successfully!']); 
         Session::flash('alert-type', 'alert-success'); 

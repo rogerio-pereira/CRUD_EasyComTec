@@ -34,4 +34,9 @@ class Candidate extends Model
     {
         return $this->hasOne(BankInformation::class, 'candidate_id');
     }
+
+    public function skills()
+    {
+        return $this->hasMany(CandidateSkills::class, 'candidate_id');
+    }
 }
