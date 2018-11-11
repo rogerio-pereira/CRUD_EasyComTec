@@ -19,9 +19,11 @@
     <table class="table table-striped table-bordered table-hover">
         <thead class="thead">
             <tr>
-                <th width="160px"></th>
+                <th width="120px"></th>
                 <th width="100px">ID</th>
-                <th>Nome</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +38,7 @@
                         <i class="fas fa-pencil-alt"></i>
                     </a>
 
-                    <a href='candidates/{{$candidate->id}}' class='btn btn-success' title='Show'>
+                    <a href='candidates/{{$candidate->id}}' class='btn btn-success mt-2' title='Show'>
                         <i class="fas fa-search"></i>
                     </a>
                 </td>

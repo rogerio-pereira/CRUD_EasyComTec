@@ -16,10 +16,8 @@
     @yield('css')
 
     <!-- Scripts -->
-    {!! Html::script('/js/app.js') !!}
     {!! Html::script('/js/common/jquery.min.js') !!}
-    {!! Html::script('/js/template.min.js') !!}
-    @yield('scripts')
+    {!! Html::script('/js/app.js') !!}
 </head>
 <body>
     <div id="app">
@@ -31,5 +29,9 @@
             </main>
         </div>
     </div>
+    
+    <!-- Scripts -->
+    {!! Html::script('/js/template.min.js') !!}
+    @yield('scripts')
 </body>
 </html>

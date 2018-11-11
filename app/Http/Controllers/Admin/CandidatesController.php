@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CandidateRequest;
 use App\Models\BankInformation;
 use App\Models\Candidate;
 use App\Models\CandidateSkills;
@@ -50,7 +51,7 @@ class CandidatesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CandidateRequest $request)
     {
         $data = $request->all();
         $bankInformation = $data['bank'];
@@ -114,7 +115,7 @@ class CandidatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CandidateRequest $request, $id)
     {
         $data = $request->all();
         $bankInformation = $data['bank'];
@@ -162,6 +163,6 @@ class CandidatesController extends Controller
         Session::flash('message', ['Candidate deleted successfully!']); 
         Session::flash('alert-type', 'alert-success'); 
 
-        return redirect()->route('admin.skills.index');
+        return redirect()->route('admin.candidates.index');
     }
 }

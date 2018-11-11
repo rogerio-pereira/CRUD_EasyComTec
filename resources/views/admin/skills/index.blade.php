@@ -21,7 +21,7 @@
             <tr>
                 <th width="120px"></th>
                 <th width="100px">ID</th>
-                <th>Nome</th>
+                <th>Name</th>
             </tr>
         </thead>
         <tbody>

@@ -7,5 +7,5 @@
 </div>
 
 <div class='col-md-12 text-center margin-top'>
-    {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Save', ['type' => 'submit', 'class' => 'btn btn-primary']) !!}
+    {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Save', ['type' => 'submit', 'class' => 'btn btn-primary', 'id' => 'submit']) !!}
 </div>

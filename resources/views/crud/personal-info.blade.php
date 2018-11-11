@@ -5,15 +5,15 @@
         {!! Form::label('name', 'Nome / Name') !!}
         {!! Form::text('name', null, ['class' => 'form-control']) !!}
         @if ($errors->has('name'))
-            <div class="text-danger">{{ $errors->first('name') }}</span>
+            <div class="text-danger">{{ $errors->first('name') }}</div>
         @endif
     </div>
 
     <div class="col-md-6 form-group">
         {!! Form::label('email', 'E-Mail') !!}
-        {!! Form::email('email', null, ['class' => 'form-control']) !!}
+        {!! Form::text('email', null, ['class' => 'form-control']) !!}
         @if ($errors->has('email'))
-            <div class="text-danger">{{ $errors->first('email') }}</span>
+            <div class="text-danger">{{ $errors->first('email') }}</div>
         @endif
     </div>
 
@@ -21,7 +21,7 @@
         {!! Form::label('phone', 'Telefone / Phone (Whatsapp)') !!}
         {!! Form::text('phone', null, ['class' => 'form-control']) !!}
         @if ($errors->has('phone'))
-            <div class="text-danger">{{ $errors->first('phone') }}</span>
+            <div class="text-danger">{{ $errors->first('phone') }}</div>
         @endif
     </div>
 
@@ -29,7 +29,7 @@
         {!! Form::label('skype', 'Skype') !!}
         {!! Form::text('skype', null, ['class' => 'form-control']) !!}
         @if ($errors->has('skype'))
-            <div class="text-danger">{{ $errors->first('skype') }}</span>
+            <div class="text-danger">{{ $errors->first('skype') }}</div>
         @endif
     </div>
 
@@ -37,7 +37,7 @@
         {!! Form::label('city', 'Cidade / City') !!}
         {!! Form::text('city', null, ['class' => 'form-control']) !!}
         @if ($errors->has('city'))
-            <div class="text-danger">{{ $errors->first('city') }}</span>
+            <div class="text-danger">{{ $errors->first('city') }}</div>
         @endif
     </div>
 
@@ -45,33 +45,29 @@
         {!! Form::label('state', 'Estado / State') !!}
         {!! Form::text('state', null, ['class' => 'form-control']) !!}
         @if ($errors->has('state'))
-            <div class="text-danger">{{ $errors->first('state') }}</span>
+            <div class="text-danger">{{ $errors->first('state') }}</div>
         @endif
     </div>
 
     <div class="col-md-6 form-group">
         {!! Form::label('linkedin', 'Linkedin') !!}
-        {!! Form::url('linkedin', null, ['class' => 'form-control']) !!}
+        {!! Form::text('linkedin', null, ['class' => 'form-control']) !!}
         @if ($errors->has('linkedin'))
-            <div class="text-danger">{{ $errors->first('linkedin') }}</span>
+            <div class="text-danger">{{ $errors->first('linkedin') }}</div>
         @endif
     </div>
 
     <div class="col-md-6 form-group">
         {!! Form::label('portfolio', 'Portfolio') !!}
-        {!! Form::url('portfolio', null, ['class' => 'form-control']) !!}
+        {!! Form::text('portfolio', null, ['class' => 'form-control']) !!}
         @if ($errors->has('portfolio'))
-            <div class="text-danger">{{ $errors->first('portfolio') }}</span>
+            <div class="text-danger">{{ $errors->first('portfolio') }}</div>
         @endif
     </div>
 
     {{--Availability--}}
     <div class="col-md-12 form-group">
         {!! Form::label('av', 'Qual é sua disponibilidade para trabalhar hoje? / What is your willingness to work today?') !!}
-
-        @if ($errors->has('availability'))
-            <div class="text-danger">{{ $errors->first('availability') }}</span>
-        @endif
         
         {{--4 hours--}}
         <br/>
@@ -97,15 +93,15 @@
         <br/>
         {!! Form::checkbox('availability[]', 'Apenas finais de semana / Only weekends', false, ['id' => 'weekends']) !!}
         {!! Form::label('weekends', 'Apenas finais de semana / Only weekends') !!}
+
+        @if ($errors->has('availability'))
+            <div class="text-danger">{{ $errors->first('availability') }}</div>
+        @endif
     </div>
 
     {{--Best Time--}}
     <div class="col-md-12 form-group my-4">
         {!! Form::label('bt', "Pra você qual é o melhor horário para trabalhar? / What's the best time to work for you?") !!}
-
-        @if ($errors->has('best_time'))
-            <div class="text-danger">{{ $errors->first('availability') }}</span>
-        @endif
         
         {{--Morning--}}
         <br/>
@@ -131,6 +127,10 @@
         <br/>
         {!! Form::checkbox('best_time[]', 'Comercial (de 08:00 as 18:00) / Business (from 08:00 a.m. to 06:00 p.m.)', false, ['id' => 'business']) !!}
         {!! Form::label('business', 'Comercial (de 08:00 as 18:00) / Business (from 08:00 a.m. to 06:00 p.m.)') !!}
+
+        @if ($errors->has('best_time'))
+            <div class="text-danger">{{ $errors->first('best_time') }}</div>
+        @endif
     </div>
 
 
@@ -139,7 +139,7 @@
         {!! Form::label('salary', 'Qual sua pretensão salarial por hora? / What is your hourly salary requirements?') !!}
         {!! Form::number('salary', null, ['class' => 'form-control', 'min' => 0, 'step' => '0.01']) !!}
         @if ($errors->has('salary'))
-            <div class="text-danger">{{ $errors->first('salary') }}</span>
+            <div class="text-danger">{{ $errors->first('salary') }}</div>
         @endif
     </div>
 </div>

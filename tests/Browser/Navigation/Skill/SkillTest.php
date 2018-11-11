@@ -43,7 +43,10 @@ class SkillTest extends DuskTestCase
                 ->assertSee('New Skill')
                 ->clickLink('New Skill')
                 ->assertSee('New Skill')
-                ->assertSee('Name');
+                ->assertSee('Name')
+                ->type('name', 'Test Create')
+                ->click('#submit')
+                ->assertSee('Skill saved successfully!');
         });
     }
 
@@ -82,8 +85,7 @@ class SkillTest extends DuskTestCase
                 ->assertSee('Name')
                 ->type('name', 'Test Dusk')
                 ->press('Save')
-                ->assertDontSee('The name field is required')
-                ->assertSee('Skill saved successfully!');
+                ->assertDontSee('The name field is required');
         });
     }
 
