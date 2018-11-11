@@ -20,6 +20,16 @@ class CreateCandidateSkillsTable extends Migration
             $table->integer('rate')->nullable();
             $table->string('other')->nullable();
             $table->timestamps();
+
+            $table->foreign('candidate_id')
+                    ->references('id')
+                    ->on('candidates')
+                    ->onDelete('cascade');
+
+            $table->foreign('skill_id')
+                    ->references('id')
+                    ->on('skills')
+                    ->onDelete('cascade');
         });
     }
 
