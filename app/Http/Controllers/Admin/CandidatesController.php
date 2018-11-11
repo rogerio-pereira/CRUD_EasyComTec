@@ -158,9 +158,11 @@ class CandidatesController extends Controller
      */
     public function destroy($id)
     {
-        $candidate = $this->model->find($id);
-        $candidate->interview->delete();
-        $this->model->destroy($id);
+        DB::beginTransaction();
+            $candidate = $this->model->find($id);
+            $candidate->interview->delete();
+            $this->model->destroy($id);
+        DB::commit();
 
         Session::flash('message', ['Candidate deleted successfully!']); 
         Session::flash('alert-type', 'alert-success'); 

@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SkillRequest;
+use App\Models\CandidateSkills;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class SkillController extends Controller
@@ -109,11 +111,14 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        $this->model->destroy($id);
+        DB::beginTransaction();
+            CandidateSkills::where('skill_id', $id)->delete();
+            $this->model->destroy($id);
+        DB::commit();
 
         Session::flash('message', ['Skill deleted successfully!']); 
         Session::flash('alert-type', 'alert-success'); 
 
-        return redirect()->route('admin.candidates.index');
+        return redirect()->route('admin.skills.index');
     }
 }
