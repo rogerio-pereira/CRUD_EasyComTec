@@ -18,6 +18,12 @@
                 Skills
             </a>
         </li>
+        {{--Interviews--}}
+        <li class="nav-item">
+            <a href="{{route('admin.interviews.index')}}"  class="nav-link">
+                Interviews
+            </a>
+        </li>
         {{--User--}}
         <li class="nav-item dropdown">
             <a id="navbarDropdownLogout" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

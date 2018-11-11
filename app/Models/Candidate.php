@@ -39,4 +39,9 @@ class Candidate extends Model
     {
         return $this->hasMany(CandidateSkills::class, 'candidate_id');
     }
+
+    public function interview()
+    {
+        return $this->hasOne(Interview::class);
+    }
 }

@@ -41,6 +41,10 @@
                     <a href='candidates/{{$candidate->id}}' class='btn btn-success mt-2' title='Show'>
                         <i class="fas fa-search"></i>
                     </a>
+
+                    <a href='#' class='btn btn-primary mt-2' title='Interview'>
+                        <i class="far fa-calendar-alt"></i>
+                    </a>
                 </td>
                 <td>{{$candidate->id}}</td>
                 <td>{{$candidate->name}}</td>

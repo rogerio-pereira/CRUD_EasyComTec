@@ -27,4 +27,5 @@ Route::group([
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('skills', 'SkillController');
     Route::resource('candidates', 'CandidatesController');
+    Route::resource('interviews', 'InterviewController');
 });
