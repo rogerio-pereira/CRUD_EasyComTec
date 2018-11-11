@@ -3,7 +3,7 @@
 @section('content')
     <div class='col-md-12 text-center'>
         <h1>
-            Edit Interview: {{$interview->name}} - ID: {{$interview->id}}
+            Edit Interview: {{$interview->candidate->name}} - ID: {{$interview->id}}
         </h1>
     </div>
 

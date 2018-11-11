@@ -28,9 +28,4 @@ class Interview extends Model
     {
         return $this->belongsTo(Candidate::class);
     }
-
-    public function formattedDate()
-    {
-        return Carbon::parse($this->appointment)->format('d M Y').' at '.Carbon::parse($this->appointment)->format('g:i A');
-    }
 }

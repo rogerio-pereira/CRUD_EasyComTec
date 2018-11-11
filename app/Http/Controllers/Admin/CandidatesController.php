@@ -158,6 +158,8 @@ class CandidatesController extends Controller
      */
     public function destroy($id)
     {
+        $candidate = $this->model->find($id);
+        $candidate->interview->delete();
         $this->model->destroy($id);
 
         Session::flash('message', ['Candidate deleted successfully!']); 

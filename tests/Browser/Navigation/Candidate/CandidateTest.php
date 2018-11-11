@@ -204,6 +204,7 @@ class CandidateTest extends DuskTestCase
                 ->click('#btnPersonalInfoNext')
                 ->type('bank[bank_information]', 'Alter Bank Information')
                 ->type('bank[owner]', 'Alter Bank Owner')
+                ->type('bank[cpf]', ' ')
                 ->type('bank[bank]', 'Alter Bank Bank')
                 ->type('bank[agency]', '1234')
                 ->type('bank[account]', '123456')

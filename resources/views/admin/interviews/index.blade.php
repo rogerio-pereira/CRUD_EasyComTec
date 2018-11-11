@@ -20,6 +20,9 @@
         </thead>
         <tbody>
             @forelse ($interviews as $interview)
+            @php
+                $date = \Carbon\Carbon::parse($interview->appointment)->format('d M Y').' at '.\Carbon\Carbon::parse($interview->appointment)->format('g:i A')
+            @endphp
             <tr>
                 <td>
                     {!! Form::open(['route' => ['admin.interviews.destroy', $interview->id], 'method' => 'delete', 'style' => 'display: inline']) !!}
@@ -32,7 +35,7 @@
                 </td>
                 <td>{{$interview->id}}</td>
                 <td>{{$interview->candidate->name}}</td>
-                <td>{{$interview->formattedDate()}}</td>
+                <td>{{$date}}</td>
             </tr>
             @empty
             <tr>
