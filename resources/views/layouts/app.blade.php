@@ -14,6 +14,12 @@
     {!! Html::style('/css/app.css') !!}
     {!! Html::style('/css/style.min.css') !!}
     @yield('css')
+
+    <!-- Scripts -->
+    {!! Html::script('/js/app.js') !!}
+    {!! Html::script('/js/common/jquery.min.js') !!}
+    {!! Html::script('/js/template.min.js') !!}
+    @yield('scripts')
 </head>
 <body>
     <div id="app">
@@ -25,10 +31,5 @@
             </main>
         </div>
     </div>
-
-    <!-- Scripts -->
-    {!! Html::script('/js/app.js') !!}
-    {!! Html::script('/js/template.min.js') !!}
-    @yield('scripts')
 </body>
 </html>

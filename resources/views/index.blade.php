@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#bank" id='bankTab'>
+                <a class="nav-link" data-toggle="tab" href="#bankInformation" id='bankTab'>
                     Informações Bancárias
                 </a>
             </li>
@@ -31,7 +31,7 @@
                 <div class="tab-pane active" id="personal-info">
                     @include('crud.personal-info')
                 </div>
-                <div class="tab-pane" id="bank">
+                <div class="tab-pane" id="bankInformation">
                     @include('crud.bank')
                 </div>
                 <div class="tab-pane" id="knowledge">

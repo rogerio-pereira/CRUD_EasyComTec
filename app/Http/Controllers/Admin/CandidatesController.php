@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\BankInformation;
 use App\Models\Candidate;
 use App\Models\CandidateSkills;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +27,9 @@ class CandidatesController extends Controller
      */
     public function index()
     {
-        //
+        $candidates = $this->model->paginate();
+
+        return view('admin.candidates.index', compact('candidates'));
     }
 
     /**
@@ -36,7 +39,9 @@ class CandidatesController extends Controller
      */
     public function create()
     {
-        //
+        $skills = Skill::all();
+
+        return view('index', compact('skills'));
     }
 
     /**
@@ -83,7 +88,9 @@ class CandidatesController extends Controller
      */
     public function show($id)
     {
-        //
+        $candidate = $this->model->find($id);
+
+        return view('admin.candidates.show', compact('candidate'));
     }
 
     /**
@@ -94,7 +101,10 @@ class CandidatesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $candidate = $this->model->find($id);
+        $skills = Skill::all();
+
+        return view('admin.candidates.edit', compact('candidate', 'skills'));
     }
 
     /**
@@ -106,7 +116,37 @@ class CandidatesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $bankInformation = $data['bank'];
+        $knowledges = $data['knowledge'];
+
+        unset($data['bank']);
+        unset($data['knowledge']);
+
+        $data['availability'] = implode('; ', $data['availability']);
+        $data['best_time'] = implode('; ', $data['best_time']);
+
+        $candidate = $this->model->find($id);
+
+        DB::beginTransaction();
+            $candidate->fill($data)->save();
+
+            $candidate->bankInformation()->delete();
+            $candidate->bankInformation()->save(new BankInformation($bankInformation));
+            
+            $candidate->skills()->delete();
+            foreach ($knowledges as $key => $knowledge) {
+                if(is_numeric($key))
+                    $candidate->skills()->save(new CandidateSkills(['skill_id' => $key,'rate' => $knowledge]));
+                else
+                    $candidate->skills()->save(new CandidateSkills(['other' => $knowledge]));
+            }
+        DB::commit();
+
+        Session::flash('message', ['Candidate updated successfully!']); 
+        Session::flash('alert-type', 'alert-success'); 
+
+        return redirect()->route('admin.candidates.index');
     }
 
     /**
@@ -117,6 +157,11 @@ class CandidatesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->model->destroy($id);
+
+        Session::flash('message', ['Candidate deleted successfully!']); 
+        Session::flash('alert-type', 'alert-success'); 
+
+        return redirect()->route('admin.skills.index');
     }
 }

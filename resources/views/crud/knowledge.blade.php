@@ -47,7 +47,7 @@
 
     <div class="col-md-12 form-group my-2">
         {!! Form::label('other', 'Conhece mais alguma linguagem ou framework que não foi listado aqui em cima? Conte para nos e se auto avalie ainda de 0 a 5. / Do you know any other language or framework that was not listed above? Tell us and evaluate yourself from 0 to 5') !!}
-        {!! Form::text('knowledge[other]', null, ['class' => 'form-control']) !!}
+        {!! Form::text('knowledge[other]', null, ['class' => 'form-control', 'id' => 'other']) !!}
         @if ($errors->has('other'))
             <div class="text-danger">{{ $errors->first('other') }}</span>
         @endif

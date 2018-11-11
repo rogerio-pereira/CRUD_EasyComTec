@@ -32,6 +32,6 @@ class CandidateSkills extends Model
 
     public function skill()
     {
-        return $this->hasOne(Skill::class, 'skill_id');
+        return $this->belongsTo(Skill::class, 'skill_id');
     }
 }

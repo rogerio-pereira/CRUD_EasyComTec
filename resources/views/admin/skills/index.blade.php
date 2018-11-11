@@ -29,10 +29,10 @@
             <tr>
                 <td>
                     {!! Form::open(['route' => ['admin.skills.destroy', $skill->id], 'method' => 'delete', 'style' => 'display: inline']) !!}
-                        {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'title' => 'Apagar', 'id' => 'delete_'.$skill->id]) !!}
+                        {!! Form::button('<i class="fas fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger', 'title' => 'Delete', 'id' => 'delete_'.$skill->id]) !!}
                     {!! Form::close() !!}
 
-                    <a href='skills/{{$skill->id}}/edit' class='btn btn-primary' title='Editar'>
+                    <a href='skills/{{$skill->id}}/edit' class='btn btn-primary' title='Edit'>
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                 </td>

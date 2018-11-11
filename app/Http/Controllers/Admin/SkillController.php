@@ -114,6 +114,6 @@ class SkillController extends Controller
         Session::flash('message', ['Skill deleted successfully!']); 
         Session::flash('alert-type', 'alert-success'); 
 
-        return redirect()->route('admin.skills.index');
+        return redirect()->route('admin.candidates.index');
     }
 }

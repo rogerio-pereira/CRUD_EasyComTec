@@ -6,6 +6,12 @@
             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
         </li>
     @else
+        {{--Candidate--}}
+        <li class="nav-item">
+            <a href="{{route('admin.candidates.index')}}"  class="nav-link">
+                Candidates
+            </a>
+        </li>
         {{--Skils--}}
         <li class="nav-item">
             <a href="{{route('admin.skills.index')}}"  class="nav-link">

@@ -3,7 +3,7 @@
 <div class='row'>
     <div class="col-md-12 form-group">
         {!! Form::label('bank[bank_information]', 'Informações Bancárias (Banco brasileiro precisa: Nome, CPF, Banco, Agencia, Conta Corrente ou Poupança) / Bank Information') !!}
-        {!! Form::text('bank[bank_information]]', null, ['class' => 'form-control']) !!}
+        {!! Form::text('bank[bank_information]]', null, ['class' => 'form-control', 'id' => 'bank_information']) !!}
         @if ($errors->has('bank[bank_information]'))
             <div class="text-danger">{{ $errors->first('bank[bank_information]') }}</span>
         @endif
@@ -11,7 +11,7 @@
 
     <div class="col-md-6 form-group">
         {!! Form::label('bank[owner]', 'Titular da Conta / Name') !!}
-        {!! Form::text('bank[owner]', null, ['class' => 'form-control']) !!}
+        {!! Form::text('bank[owner]', null, ['class' => 'form-control', 'id' => 'owner']) !!}
         @if ($errors->has('bank[owner]'))
             <div class="text-danger">{{ $errors->first('bank[owner]') }}</span>
         @endif
@@ -19,7 +19,7 @@
 
     <div class="col-md-6 form-group">
         {!! Form::label('bank[cpf]', 'CPF / Somente para Brasileiros') !!}
-        {!! Form::text('bank[cpf]', null, ['class' => 'form-control cpf']) !!}
+        {!! Form::text('bank[cpf]', null, ['class' => 'form-control cpf', 'id' => 'cpf']) !!}
         @if ($errors->has('bank[cpf]'))
             <div class="text-danger">{{ $errors->first('bank[cpf]') }}</span>
         @endif
@@ -27,7 +27,7 @@
 
     <div class="col-md-6 form-group">
         {!! Form::label('bank[bank]', 'Banco / Bank') !!}
-        {!! Form::text('bank[bank]', null, ['class' => 'form-control']) !!}
+        {!! Form::text('bank[bank]', null, ['class' => 'form-control', 'id' => 'bank']) !!}
         @if ($errors->has('bank[bank]'))
             <div class="text-danger">{{ $errors->first('bank[bank]') }}</span>
         @endif
@@ -35,7 +35,7 @@
 
     <div class="col-md-6 form-group">
         {!! Form::label('bank[agency]', 'Agência / Agency') !!}
-        {!! Form::text('bank[agency]', null, ['class' => 'form-control']) !!}
+        {!! Form::text('bank[agency]', null, ['class' => 'form-control', 'id' => 'agency']) !!}
         @if ($errors->has('bank[agency]'))
             <div class="text-danger">{{ $errors->first('bank[agency]') }}</span>
         @endif
@@ -43,7 +43,7 @@
 
     <div class="col-md-6 form-group">
         {!! Form::label('bank[account]', 'Número da Conta / Account Number') !!}
-        {!! Form::text('bank[account]', null, ['class' => 'form-control']) !!}
+        {!! Form::text('bank[account]', null, ['class' => 'form-control', 'id' => 'account']) !!}
         @if ($errors->has('bank[account]'))
             <div class="text-danger">{{ $errors->first('bank[account]') }}</span>
         @endif
