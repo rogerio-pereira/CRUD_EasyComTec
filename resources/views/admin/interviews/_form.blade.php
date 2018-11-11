@@ -1,11 +1,7 @@
 <div class="col-md-12 form-group">
-    {!! Form::label('name', 'Name') !!}
-    {!! Form::text('name', null, ['class' => 'form-control']) !!}
-    @if ($errors->has('name'))
-        <div class="text-danger">{{ $errors->first('name') }}</span>
+    {!! Form::label('appointment', 'Appointment') !!}
+    {!! Form::text('appointment', null, ['class' => 'form-control timestamp', 'id' => 'appointment', 'placeholder' => 'aaaa/mm/dd hh:mm', 'autofocus']) !!}
+    @if ($errors->has('appointment'))
+        <div class="text-danger">{{ $errors->first('appointment') }}</span>
     @endif
-</div>
-
-<div class='col-md-12 text-center margin-top'>
-    {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Save', ['type' => 'submit', 'class' => 'btn btn-primary', 'id' => 'submit']) !!}
 </div>

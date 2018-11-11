@@ -42,7 +42,7 @@
                         <i class="fas fa-search"></i>
                     </a>
 
-                    <a href='#' class='btn btn-primary mt-2' title='Interview'>
+                    <a href='#' class='btn btn-primary mt-2' title='Interview' id='interview_{{$candidate->id}}' data-toggle="modal" data-target="#interviewModal" data-id='{{$candidate->id}}'>
                         <i class="far fa-calendar-alt"></i>
                     </a>
                 </td>
@@ -64,4 +64,12 @@
     <div class='col-md-12 text-center'>
         {{$candidates->render()}}
     </div>
+
+    @include('admin.interviews._modal')
+@endsection
+
+@section('scripts')
+    {!! Html::script('/js/common/jquery.maskedinput.min.js') !!}
+    {!! Html::script('/js/common/jquery.price_format.min.js') !!}
+    {!! Html::script('/js/common/jsMascaras.min.js') !!}
 @endsection

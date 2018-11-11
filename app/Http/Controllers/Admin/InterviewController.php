@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\InterviewRequest;
 use App\Models\Interview;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -51,6 +52,7 @@ class InterviewController extends Controller
     public function store(InterviewRequest $request)
     {
         $data = $request->all();
+        $data['appointment'] = Carbon::parse($data['appointment']);
 
         $this->model->create($data);
 
@@ -94,6 +96,8 @@ class InterviewController extends Controller
     public function update(InterviewRequest $request, $id)
     {
         $data = $request->all();
+        $data['appointment'] = Carbon::parse($data['appointment']);
+        
         $interview = $this->model->find($id);
 
         $interview->fill($data)->save();
@@ -117,6 +121,6 @@ class InterviewController extends Controller
         Session::flash('message', ['Interview deleted successfully!']); 
         Session::flash('alert-type', 'alert-success'); 
 
-        return redirect()->route('admin.candidates.index');
+        return redirect()->route('admin.interviews.index');
     }
 }

@@ -3,7 +3,7 @@
 <div class='row'>
     <div class="col-md-6 form-group">
         {!! Form::label('name', 'Nome / Name') !!}
-        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+        {!! Form::text('name', null, ['class' => 'form-control', 'autofocus']) !!}
         @if ($errors->has('name'))
             <div class="text-danger">{{ $errors->first('name') }}</div>
         @endif
