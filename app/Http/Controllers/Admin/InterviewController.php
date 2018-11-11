@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\InterviewRequest;
 use App\Models\Interview;
+use App\Services\InterviewService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -12,10 +13,12 @@ use Illuminate\Support\Facades\Session;
 class InterviewController extends Controller
 {
     private $model;
+    private $service;
 
     public function __construct(Interview $model)
     {
         $this->model = $model;
+        $this->service = new InterviewService();
     }
 
     /**
@@ -54,7 +57,7 @@ class InterviewController extends Controller
         $data = $request->all();
         $data['appointment'] = Carbon::parse($data['appointment']);
 
-        $this->model->create($data);
+        $this->service->store($data);
 
         Session::flash('message', ['Interview saved successfully!']); 
         Session::flash('alert-type', 'alert-success'); 
@@ -100,7 +103,7 @@ class InterviewController extends Controller
         
         $interview = $this->model->find($id);
 
-        $interview->fill($data)->save();
+        $this->service->update($data, $id);
 
         Session::flash('message', ['Interview updated successfully!']); 
         Session::flash('alert-type', 'alert-success'); 
@@ -116,7 +119,7 @@ class InterviewController extends Controller
      */
     public function destroy($id)
     {
-        $this->model->destroy($id);
+        $this->service->destroy($id);
 
         Session::flash('message', ['Interview deleted successfully!']); 
         Session::flash('alert-type', 'alert-success'); 
