@@ -11,9 +11,6 @@ PhpUnit
 ### Screenshots
 Todos os screenshots estão na pasta prints
 
-### Youtube
-[Video Youtube](https://www.youtube.com/watch?v=3t-bb7y6eTQ)
-
 ### Instalação
 Clone o Repositório
 ```
